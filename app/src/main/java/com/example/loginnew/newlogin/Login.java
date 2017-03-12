@@ -17,29 +17,31 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        login();
-        openRegistor();
-    }
-    public void login(){
-        uname=(EditText)findViewById(R.id.username);
-        pass=(EditText)findViewById(R.id.password);
 
-        btn=(Button)findViewById(R.id.signin);
-        btn.setOnClickListener(
-                new View.OnClickListener(){
-                    @Override
-                    public void onClick(View v) {
-                        if(uname.getText().toString().equals("admin")&&pass.getText().toString().equals("admin")){
-                            Toast.makeText(Login.this, "Valid Credential", Toast.LENGTH_SHORT).show();
-                        }
-                        else{
-                            Toast.makeText(Login.this, "InvValid Credential", Toast.LENGTH_SHORT).show();
-                        }
-                    }
+        uname=(EditText)findViewById(R.id.usernamel);
+        pass=(EditText)findViewById(R.id.passwordl);
+
+        openRegister();
+        final SQLiteDB db=new SQLiteDB(Login.this);
+        btn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                db.open();
+                String password=db.getEntry(uname.getText().toString());
+                if (password.equals(pass.getText().toString())){
+                    Toast.makeText(getApplicationContext(), "AUTHENTICATION SUCCESS", Toast.LENGTH_SHORT).show();
                 }
-        );
+                else {
+                    Toast.makeText(getApplicationContext(), "AUTHENTICATION FALIED", Toast.LENGTH_SHORT).show();
+                }
+                db.close();
+                uname.setText("");
+                pass.setText("");
+            }
+        });
+
     }
-    public void openRegistor(){
+
+    public void openRegister(){
         btn=(Button)findViewById(R.id.registerpage);
         btn.setOnClickListener(
                 new View.OnClickListener(){

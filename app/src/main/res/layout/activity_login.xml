@@ -28,25 +28,25 @@
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="26dp"
-        android:id="@+id/username"
+        android:id="@+id/usernamel"
         android:hint="Username" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:layout_below="@+id/username"
+        android:layout_below="@+id/usernamel"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="38dp"
-        android:id="@+id/password"
+        android:id="@+id/passwordl"
         android:hint="Password"
         android:inputType="textPassword" />
 
     <Button
-        android:text="Sign in"
+        android:text="login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/password"
+        android:layout_below="@+id/passwordl"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="69dp"
         android:id="@+id/signin" />
