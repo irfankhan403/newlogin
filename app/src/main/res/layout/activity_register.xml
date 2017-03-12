@@ -58,5 +58,5 @@
         android:layout_alignLeft="@+id/button"
         android:layout_alignStart="@+id/button"
         android:layout_marginTop="49dp"
-        android:id="@+id/button2" />
+        android:id="@+id/loginpage" />
 </RelativeLayout>
